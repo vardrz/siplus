@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StatusController;
+use App\Http\Controllers\NotifController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,3 +43,7 @@ Route::post('/status', [StatusController::class, 'update']);
 // API
 Route::get('/api/siswa/{nisn}', [StudentController::class, 'APIget']);
 Route::get('/skl/{nisn}', [StudentController::class, 'skl']);
+
+// FCM Notif
+Route::get('/fcm', [NotifController::class, 'index']);
+Route::post('/fcmsend', [NotifController::class, 'send']);
