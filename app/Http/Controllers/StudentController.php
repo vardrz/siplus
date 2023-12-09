@@ -76,9 +76,9 @@ class StudentController extends Controller
     function APIget($nisn = null)
     {
         $student = Student::where('nisn', $nisn)->get();
-        $skl = url('/skl') . '/' . $student[0]->nisn;
 
         if (count($student) > 0) {
+            $skl = url('/skl') . '/' . $student[0]->nisn;
             return response()->json(['code' => 200, 'message' => 'Data Ditemukan', 'data' => $student[0], 'skl' => $skl], 200);
         } else {
             return response()->json(['code' => 404, 'message' => 'Data Tidak Ditemukan'], 404);
